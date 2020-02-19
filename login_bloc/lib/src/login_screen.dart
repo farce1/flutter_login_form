@@ -1,53 +1,52 @@
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget {
-  LoginScreen({Key key}) : super(key: key);
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({Key key}) : super(key: key);
 
-  @override
-  _LoginScreenState createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10.0),
-      child: Form(
+      child: Container(
+        margin: EdgeInsets.all(20.0),
         child: Column(
           children: <Widget>[
             emailField(),
             passwordField(),
             Container(
-              margin: EdgeInsets.only(top: 10.0),
+              margin: EdgeInsets.only(top: 25.0),
             ),
-            submitButton(),
+            submitButton()
           ],
         ),
       ),
     );
   }
 
-  Widget emailField() => TextFormField(
-        keyboardType: TextInputType.emailAddress,
-        decoration: InputDecoration(
-          icon: Icon(Icons.person),
-          hintText: 'you@example.com',
-          labelText: 'Email',
-        ),
-      );
+  Widget emailField() {
+    return TextField(
+      keyboardType: TextInputType.emailAddress,
+      decoration: InputDecoration(
+        hintText: 'you@example.com',
+        labelText: 'Email Address',
+      ),
+    );
+  }
 
-  Widget passwordField() => TextFormField(
-        obscureText: true,
-        decoration: InputDecoration(
-          icon: Icon(Icons.vpn_key),
-          hintText: 'Enter Password',
-          labelText: 'Password',
-        ),
-      );
+  Widget passwordField() {
+    return TextField(
+      obscureText: true,
+      decoration: InputDecoration(
+        hintText: 'Password',
+        labelText: 'Password',
+      ),
+    );
+  }
 
-  Widget submitButton() => RaisedButton(
-        child: Text('Submit'),
-        onPressed: () {},
-        color: Colors.blue,
-      );
+  Widget submitButton() {
+    return RaisedButton(
+      child: Text('Login'),
+      color: Colors.blue,
+      onPressed: null,
+    );
+  }
 }
